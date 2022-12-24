@@ -1,0 +1,18 @@
+{
+    "compilerOptions": {
+        "strict": true,
+        "baseUrl": ".",
+        "paths": {
+            // This needs to be mirrored in babel.config.js
+            "components/*": [
+                "src/components/*"
+            ],
+            "screens/*": [
+                "src/screens/*"
+            ],
+            "src/*": [
+                "src/*"
+            ]
+        }
+    }
+}
