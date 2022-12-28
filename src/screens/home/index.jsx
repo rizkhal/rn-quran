@@ -13,12 +13,15 @@ import { SetupService, QueueInitialTrackService } from '../../services';
 const Home = () => {
   const track = useCurrentTrack();
   const playBackState = usePlaybackState();
+  const [surahs, setSurahs] = React.useState(null);
 
   const [isPlayerReady, setIsPlayerReady] = React.useState(false);
 
   const play = async ({ number }) => {
     try {
       const { data } = await http.get(`/v1/surah/${number}/ar.husarymujawwad`);
+
+      setSurahs(data.data);
 
       const isSetup = await SetupService();
       setIsPlayerReady(isSetup);
@@ -66,6 +69,7 @@ const Home = () => {
         <Surahs onSelect={item => play(item)} />
 
         <PlayerController
+          surahs={surahs}
           onPlay={() => playBackToggle(playBackState)}
           onNext={async () => await TrackPlayer.skipToNext()}
           onPrev={async () => await TrackPlayer.skipToPrevious()}

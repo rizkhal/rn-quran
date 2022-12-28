@@ -50,7 +50,7 @@ const Surahs = ({ onSelect }) => {
                       </StyledText>
                     </StyledView>
                     <StyledText
-                      className="text-gray-600 text-2xl"
+                      className="text-gray-600 text-3xl"
                       style={{ fontFamily: fonts.secondary.regular }}>
                       {item.name.split('سُورَةُ')[1]}
                     </StyledText>
